@@ -1,0 +1,7 @@
+<div class="movies">
+  <ul class="results">
+    {{#each @model as |movie|}}
+      <li><Movie @movie={{movie}}/></li>
+    {{/each}}
+  </ul>
+</div>

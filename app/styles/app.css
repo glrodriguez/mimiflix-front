@@ -1,1 +1,47 @@
 /* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+.container {
+  max-width: 1200px;
+  min-height: 100vh;
+  background: #f9f9f9;
+  margin: 0 auto;
+}
+
+.body {
+  /* background-color: blue;
+  color: aliceblue; */
+}
+
+.title {
+  background-color: bisque;
+  display: flex;
+  place-content: center center;
+}
+
+.menu-home, .no-link {
+  text-decoration: none; /* Elimina el subrayado */
+  color: inherit; /* Mantiene el color del texto del contenedor */
+}
+
+.menu-home:visited {
+  color: inherit; /* Mantiene el color después de ser clickeado */
+}
+
+.menu-home:active,
+.menu-home:hover {
+  color: inherit; /* Mantiene el color cuando se hace clic o al pasar el mouse */
+  text-decoration: none; /* Asegura que no se subraye en ningún estado */
+}
+
+.menu-home h1 {
+  color: brown;
+}
+
+.results li {
+  list-style: none;
+  padding: 10px 15px;
+}

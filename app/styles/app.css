@@ -1,47 +1,100 @@
-/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+/* Reset básico para eliminar estilos por defecto */
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: Arial, sans-serif;
+}
 
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
-
+/* Estilo para el contenedor principal */
 .container {
   max-width: 1200px;
-  min-height: 100vh;
-  background: #f9f9f9;
   margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Estilo para el NavBar */
+.NavBar {
+  background-color: #333;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+.NavBar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0 10px;
+}
+
+/* Estilo para el cuerpo de la página */
 .body {
-  /* background-color: blue;
-  color: aliceblue; */
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.title {
-  background-color: bisque;
+.movies .results {
   display: flex;
-  place-content: center center;
+  flex-direction: column;  /* Cambia a columna para que las películas estén una debajo de otra */
+  gap: 10px;               /* Espacio entre cada fila */
+  padding: 20px;
+  list-style: none;        /* Elimina las viñetas de la lista */
 }
 
-.menu-home, .no-link {
-  text-decoration: none; /* Elimina el subrayado */
-  color: inherit; /* Mantiene el color del texto del contenedor */
+.movies .results li {
+  list-style-type: none;   /* Asegura que no haya viñetas */
+  margin: 0;               /* Elimina márgenes */
+  padding: 0;              /* Elimina relleno */
 }
 
-.menu-home:visited {
-  color: inherit; /* Mantiene el color después de ser clickeado */
+/* Estilo para el componente Movie como fila */
+.movie {
+  display: flex;
+  flex-direction: row;     /* Configura los elementos de la película en una fila */
+  align-items: center;     /* Alinea los elementos verticalmente al centro */
+  background-color: #e8f0fe;  /* Fondo claro para separación visual */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: background-color 0.3s ease;
 }
 
-.menu-home:active,
-.menu-home:hover {
-  color: inherit; /* Mantiene el color cuando se hace clic o al pasar el mouse */
-  text-decoration: none; /* Asegura que no se subraye en ningún estado */
+.movie:hover {
+  background-color: #d0e4fd;  /* Cambia ligeramente el fondo al pasar el mouse */
 }
 
-.menu-home h1 {
-  color: brown;
+.movie h3 {
+  margin: 0 10px 15px 0;     /* Espacio alrededor del título */
+  font-size: 1.2rem;
+  flex: 1;                /* Permite que el título ocupe el espacio restante */
 }
 
-.results li {
-  list-style: none;
-  padding: 10px 15px;
+.movie .details {
+  display: flex;
+  flex-direction: column; /* Alinea los detalles en una columna */
+  flex: 3;                /* Toma más espacio que el título */
+}
+
+.movie .detail {
+  margin-bottom: 10px;     /* Espacio entre cada detalle */
+}
+
+.movie .detail span {
+  font-weight: bold;      /* Negrita para el título de cada detalle */
+}
+
+/* Estilo para los enlaces */
+.no-link {
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.no-link:hover {
+  text-decoration: underline;
 }

@@ -1,8 +1,9 @@
-<LinkTo class="no-link" @route="movie" @model={{@movie._id}}>
-  <article class="movie">
-    <div class="details">                   {{!-- El componente se va a formar con los datos que se le pasen en la variable @movie, que va a ser un modelo iterado o algo, en el template --}}
+<article class="movie">
+   <div class="details">                   {{!-- El componente se va a formar con los datos que se le pasen en la variable @movie, que va a ser un modelo iterado o algo, en el template --}}
       <h3>
-        {{@movie.title}}
+        <LinkTo class="no-link" @route="movie" @model={{@movie._id}}>  {{!-- Paso el id como parametro a la ruta (POR DEFECTO YA LO TOMA, PERO PARA ENTENDER)--}}
+          {{@movie.title}}
+        </LinkTo>
       </h3>
       <div class="detail director">
         <span>Director:</span> {{@movie.director}}
@@ -16,6 +17,5 @@
       <div class="detail rating">
         <span>Rating:</span> {{@movie.rating}}
       </div>
-    </div>
-  </article>
-</LinkTo>
+  </div>
+</article>

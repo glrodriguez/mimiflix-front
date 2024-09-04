@@ -1,373 +1,47 @@
-/* Reset básico para eliminar estilos por defecto */
-body,
-h1,
-h2,
-h3,
-p,
-ul,
-li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  font-family: Arial, sans-serif;
-}
+/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
 
-/* Estilo para el contenedor principal */
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
 .container {
+  max-width: 1200px;
+  min-height: 100vh;
+  background: #f9f9f9;
   margin: 0 auto;
-  padding: 20px;
-  background-color: #f4f4f4;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo para el NavBar */
-.NavBar {
-  background-color: #333;
-  color: #fff;
-  padding: 15px;
-  text-align: center;
-}
-
-.NavBar a {
-  color: #fff;
-  text-decoration: none;
-  padding: 0 10px;
-}
-
-/* Estilo para el cuerpo de la página */
 .body {
+  /* background-color: blue;
+  color: aliceblue; */
+}
+
+.title {
+  background-color: bisque;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  place-content: center center;
 }
 
-.tool-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-right: 20px;
-  padding-left: 20px;
+.menu-home, .no-link {
+  text-decoration: none; /* Elimina el subrayado */
+  color: inherit; /* Mantiene el color del texto del contenedor */
 }
 
-/* Estilos para la barra de búsqueda */
-.search-bar {
-  flex: 1;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  text-align: center;
+.menu-home:visited {
+  color: inherit; /* Mantiene el color después de ser clickeado */
 }
 
-.search-bar input {
-  text-align: center;
-  width: 70%;
-  padding: 10px 15px; /* Espacio interno para comodidad al escribir */
-  border: 1px solid #ccc; /* Borde para definir el campo de entrada */
-  border-radius: 25px; /* Bordes más redondeados para un diseño moderno */
-  font-size: 1rem; /* Tamaño de fuente adecuado para legibilidad */
-  box-sizing: border-box; /* Incluye el borde y el relleno en el ancho total */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
-  transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave para efectos de borde y sombra */
+.menu-home:active,
+.menu-home:hover {
+  color: inherit; /* Mantiene el color cuando se hace clic o al pasar el mouse */
+  text-decoration: none; /* Asegura que no se subraye en ningún estado */
 }
 
-.search-bar input:focus {
-  border-color: #007bff; /* Cambia el color del borde al hacer foco */
-  outline: none; /* Elimina el borde azul por defecto */
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra al hacer foco para visibilidad */
+.menu-home h1 {
+  color: brown;
 }
 
-.add-movie {
-  flex-shrink: 0; /* Para que no se achique el boton */
-}
-
-.add-movie-button {
-  background-color: rgb(43, 145, 255);
-  color: #fff;
-  border: none;
-  border-radius: 25px;
-  font-size: 1rem;
-  padding: 10px 20px;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-}
-
-.add-movie-button:hover {
-  background-color: rgb(31, 109, 193);
-}
-
-.movies {
-  width: 80%;
-}
-
-.movies .results {
-  display: flex;
-  flex-direction: column; /* Cambia a columna para que las películas estén una debajo de otra */
-  gap: 10px; /* Espacio entre cada fila */
-  padding: 20px;
-  list-style: none; /* Elimina las viñetas de la lista */
-}
-
-.movies .results li {
-  list-style-type: none; /* Asegura que no haya viñetas */
-  margin: 0; /* Elimina márgenes */
-  padding: 0; /* Elimina relleno */
-}
-
-/* Estilo para el componente Movie como fila */
-.movie {
-  display: flex;
-  flex-direction: row; /* Configura los elementos de la película en una fila */
-  align-items: center; /* Alinea los elementos verticalmente al centro */
-  background-color: #e8f0fe; /* Fondo claro para separación visual */
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  transition: background-color 0.3s ease;
-}
-
-.movie:hover {
-  background-color: #d0e4fd; /* Cambia ligeramente el fondo al pasar el mouse */
-}
-
-.movie h3 {
-  margin: 0 10px 15px 0; /* Espacio alrededor del título */
-  font-size: 1.2rem;
-  flex: 1; /* Permite que el título ocupe el espacio restante */
-}
-
-.movie .details {
-  display: flex;
-  flex-direction: column; /* Alinea los detalles en una columna */
-  flex: 3; /* Toma más espacio que el título */
-}
-
-.movie .detail {
-  margin-bottom: 10px; /* Espacio entre cada detalle */
-}
-
-.movie .detail span {
-  font-weight: bold; /* Negrita para el título de cada detalle */
-}
-
-/* Estilo para los enlaces */
-.no-link {
-  color: #000000;
-  text-decoration: none;
-}
-
-.details h3 {
-  font-size: 150%;
-  color: rgb(43, 145, 255);
-}
-
-/* Estilo general para el formulario */
-.new-movie-form {
-  width: 100%;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.new-movie-form h2 {
-  margin-bottom: 20px;
-  font-size: 1.5em;
-  color: rgb(43, 145, 255);
-  text-align: center;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #555;
-}
-
-.form-group input, .form-group textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: #007bff; /* Color del borde al enfocar */
-  outline: none;
-  box-shadow: 0 0 4px rgba(0, 123, 255, 0.2); /* Sombra al enfocar */
-}
-
-.form-group textarea {
-  height: 100px;
-  resize: vertical; /* Permite redimensionar verticalmente */
-}
-
-.new-movie-form {
-  max-width: 600px;
-  margin: 0px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-}
-
-.Input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.selected-genres {
-  margin-top: 15px;
-}
-
-.selected-genres ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.selected-genres li {
-  margin-bottom: 5px;
-  color: #333;
-}
-
-.selected-genres h3, .selected-genres p {
-  margin-bottom: 15px;
-  margin-top: 20px;
-  color: #555;
-}
-
-.selected-genres button {
-  background: none;
-  border: none;
-  color: red;
-  cursor: pointer;
-}
-
-.new-movie-form select option {
-  padding: 5px;
-  background-color: #ffffff;
-  color: #333;
-}
-
-.new-movie-form select option:hover {
-  background-color: #e6e6e6;
-}
-
-button[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
-#submit-add-movie {
-  margin-top: 20px;
-  text-align: center;
-}
-
-/* Panel de filtros y ordenación */
-.sidebar {
-  flex: 1;
-  position: sticky;
-  top: 20px; /* Mantiene el div en la parte superior del viewport */
-  height: fit-content; /* Ajusta el tamaño del div al contenido */
-  align-self: flex-start;
-  max-width: 300px;
-  background-color: #f4f4f4;
-  padding: 15px;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-}
-
-.sidebar .sidebar-title {
-  font-size: large;
-  color: rgb(43, 145, 255);
-  margin-top: 10px;
-  margin-bottom: 20px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.sidebar p {
-  margin-top: 25px;
-  font-weight: bold;
-}
-
-.filter-group {
-  margin-bottom: 15px;
-  margin-top: 25px;
-}
-
-.filter-group p {
-  margin-bottom: 10px;
-  margin-top: 10px;
-  color: #007bff;
-}
-
-.filter-group label {
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.from-to {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.data-input {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-right: 10px;
-  width: 100%;
-}
-
-.data-input label {
-  margin-right: 5px;
-}
-
-.filter-group input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.sort-buttons {
-  margin-top: 5px;
-  display: flex;
-  flex-direction: column;
-}
-
-.sort-buttons button {
-  padding: 10px;
-  margin-top: 10px;
-  background-color: rgb(43, 145, 255);
-  color: white;
-  border: none;
-  border-radius: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.sort-buttons button:hover {
-  background-color: rgb(31, 109, 193);
+.results li {
+  list-style: none;
+  padding: 10px 15px;
 }

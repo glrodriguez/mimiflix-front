@@ -1,0 +1,22 @@
+<article class="movie_details">
+   <div class="movieDetails"> {{!-- El componente se va a formar con los datos que se le pasen en la variable @movie, que va a ser un modelo iterado o algo, en el template --}}
+      <div class="movieDetailDirector">
+        <span>Director:</span> {{@movieDetails.director}}
+      </div>
+      <div class="movieDetailYear">
+        <span>Year:</span> {{@movieDetails.year}}
+      </div>
+      <div class="movieDetailDescription">
+        <span>Description:</span> {{@movieDetails.description}}
+      </div>
+      <div class="movieDetailRating">
+        <span>Rating:</span> {{@movieDetails.rating}}
+      </div>
+  </div>
+  <div class="movieTrailer">
+    <LinkTo 
+      class="no-link" @route="index">
+      Watch Trailer 
+    </LinkTo>
+  </div>
+</article>

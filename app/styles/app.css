@@ -1,5 +1,11 @@
 /* Reset básico para eliminar estilos por defecto */
-body, h1, h2, h3, p, ul, li {
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -39,24 +45,33 @@ body, h1, h2, h3, p, ul, li {
 
 .movies .results {
   display: flex;
-  flex-direction: column;  /* Cambia a columna para que las películas estén una debajo de otra */
-  gap: 10px;               /* Espacio entre cada fila */
+  flex-direction: column;
+  /* Cambia a columna para que las películas estén una debajo de otra */
+  gap: 10px;
+  /* Espacio entre cada fila */
   padding: 20px;
-  list-style: none;        /* Elimina las viñetas de la lista */
+  list-style: none;
+  /* Elimina las viñetas de la lista */
 }
 
 .movies .results li {
-  list-style-type: none;   /* Asegura que no haya viñetas */
-  margin: 0;               /* Elimina márgenes */
-  padding: 0;              /* Elimina relleno */
+  list-style-type: none;
+  /* Asegura que no haya viñetas */
+  margin: 0;
+  /* Elimina márgenes */
+  padding: 0;
+  /* Elimina relleno */
 }
 
 /* Estilo para el componente Movie como fila */
 .movie {
   display: flex;
-  flex-direction: row;     /* Configura los elementos de la película en una fila */
-  align-items: center;     /* Alinea los elementos verticalmente al centro */
-  background-color: #e8f0fe;  /* Fondo claro para separación visual */
+  flex-direction: row;
+  /* Configura los elementos de la película en una fila */
+  align-items: center;
+  /* Alinea los elementos verticalmente al centro */
+  background-color: #e8f0fe;
+  /* Fondo claro para separación visual */
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -65,32 +80,198 @@ body, h1, h2, h3, p, ul, li {
 }
 
 .movie:hover {
-  background-color: #d0e4fd;  /* Cambia ligeramente el fondo al pasar el mouse */
+  background-color: #d0e4fd;
+  /* Cambia ligeramente el fondo al pasar el mouse */
 }
 
 .movie h3 {
-  margin: 0 10px 15px 0;     /* Espacio alrededor del título */
+  margin: 0 10px 15px 0;
+  /* Espacio alrededor del título */
   font-size: 1.2rem;
-  flex: 1;                /* Permite que el título ocupe el espacio restante */
+  flex: 1;
+  /* Permite que el título ocupe el espacio restante */
 }
 
 .movie .details {
+  /* movie_details */
   display: flex;
-  flex-direction: column; /* Alinea los detalles en una columna */
-  flex: 3;                /* Toma más espacio que el título */
+  flex-direction: column;
+  /* Alinea los detalles en una columna */
+  flex: 3;
+  /* Toma más espacio que el título */
 }
 
 .movie .detail {
-  margin-bottom: 10px;     /* Espacio entre cada detalle */
+  margin-bottom: 10px;
+  /* Espacio entre cada detalle */
 }
 
 .movie .detail span {
-  font-weight: bold;      /* Negrita para el título de cada detalle */
+  font-weight: bold;
+  /* Negrita para el título de cada detalle */
+}
+
+.details h3 {
+  font-size: 150%;
+  color: rgb(43, 145, 255);
 }
 
 /* Estilo para los enlaces */
 .no-link {
   color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.no-link:hover {
+  text-decoration: underline;
+}
+
+
+
+/* Estilo para los enlaces de botones */
+.editMovie, .btnDeleteMovie {
+  text-decoration: none; /* Elimina subrayado del enlace */
+}
+
+.buttons {
+  display: flex;
+  justify-content: center; /* Centra los botones horizontalmente */
+  gap: 10px; /* Espacio entre los botones, ajusta según sea necesario */
+}
+
+/* Estilo base para los botones */
+.btnEditMovie, .btnDeleteMovie {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(43, 145, 255);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 150px; /* Ajusta el ancho según sea necesario */
+  height: 40px; /* Ajusta la altura según sea necesario */
+}
+
+/* Estilo para el efecto hover en ambos botones */
+.btnEditMovie:hover, .btnDeleteMovie:hover {
+  background-color: rgb(31, 109, 193);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Efecto hover para ambos botones */
+.editMovie .btnEditMovie:hover, .btnDeleteMovie:hover {
+  background-color: rgb(31, 109, 193);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Estilo para el contenedor de la página de la película */
+.moviePage {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #e8f0fe;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+/* Estilo para el título principal de la película */
+.moviePage h1 {
+  font-size: 2.5rem;
+  color: #0047c2;
+  /* Color del texto principal */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Estilo para el contenedor de los detalles de la película */
+.movieDetails {
+  padding: 20px;
+  background-color: #e8f0fe;
+  /* Fondo blanco */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Centra el contenido horizontalmente */
+}
+
+.movieTrailer {
+  padding: 20px;
+  background-color: #e8f0fe;
+  /* Fondo blanco */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  /* Centra el contenido horizontalmente */
+}
+
+/* Estilo para el subtítulo "Details" */
+.movieDetails h2 {
+  font-size: 2rem;
+  color: #007bff;
+  /* Color del subtítulo */
+  margin-bottom: 15px;
+}
+
+/* Estilo para el componente MovieDetails */
+.moviePageMovie {
+  padding: 15px;
+  background-color: #e8f0fe;
+  /* Fondo azul claro */
+  border: 1px solid #ccc;
+  /* Borde gris claro */
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.moviePageMovie:hover {
+  background-color: #d0e4fd;
+  /* Fondo azul más oscuro al pasar el mouse */
+}
+
+/* Estilo para los detalles individuales dentro de MovieDetails */
+.movie_details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.movie_details div {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.movie_details span {
+  font-weight: bold;
+  margin-right: 10px;
+  color: #333;
+  /* Color del texto */
+}
+
+/* Estilo para el título del enlace al trailer */
+.movie_details h3 {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: rgb(43, 145, 255);
+  /* Color azul para el enlace */
+}
+
+/* Estilo para enlaces */
+.no-link {
+  color: #007bff;
+  /* Azul para los enlaces */
   text-decoration: none;
   cursor: pointer;
 }

@@ -1,9 +1,7 @@
 import Route from '@ember/routing/route';
 
-
 export default class MovieRoute extends Route {
   async model(params) {
-    
     console.log(params.movie_id);
     return {
       _id: '66be345e0b3655fa1eb3fd9f',
@@ -17,6 +15,6 @@ export default class MovieRoute extends Route {
       genres: ['War', 'Drama', 'Adventure'],
       isDeleted: false,
       __v: 0,
-    }
+    };
   }
 }

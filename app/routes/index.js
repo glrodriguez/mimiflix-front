@@ -1,5 +1,6 @@
 import Route from '@ember/routing/route';
 
+
 export default class IndexRoute extends Route {
   async model() {
     return [
@@ -142,7 +143,7 @@ export default class IndexRoute extends Route {
         genres: ['War', 'Drama', 'Adventure'],
         isDeleted: false,
         __v: 0,
-      }
+      },
     ];
   }
 }

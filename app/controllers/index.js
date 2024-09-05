@@ -6,9 +6,9 @@ import { inject as service } from '@ember/service';
 
 export default class IndexController extends Controller {
   @tracked searchTerm = '';
-  @tracked filteredMovies = this.model;     // filteredMovies siempre va a tener las movies que se muestran en la pantalla
+  @tracked filteredMovies = this.model; // filteredMovies siempre va a tener las movies que se muestran en la pantalla
   @service router;
-  
+
   @tracked yearFrom = 0;
   @tracked yearTo = 2025;
 
@@ -25,75 +25,80 @@ export default class IndexController extends Controller {
   }
 
   @action
-  updateYearTo(event) {
-    this.yearTo = event.target.value;
+  updateMovies(elem, type, event) {   // El event siempre tiene que ser el ultimo parametro
+    if (elem === "year") {
+      if (type === "from") {
+        this.yearFrom = event.target.value;
 
-    this.filteredMovies = this.model.filter((movie) => movie.year <= this.yearTo).sort((a, b) => {
-      const itemA = a.year;
-      const itemB = b.year;
+        this.filteredMovies = this.model
+          .filter((movie) => movie.year >= this.yearFrom)
+          .sort((a, b) => {
+            const itemA = a.year;
+            const itemB = b.year;
 
-      if (itemA < itemB) {
-        return 1;
+            if (itemA < itemB) {
+              return 1;
+            }
+            if (itemA > itemB) {
+              return -1;
+            }
+            return 0;
+          });
+      } else {
+        this.yearTo = event.target.value;
+
+        this.filteredMovies = this.model
+          .filter((movie) => movie.year <= this.yearTo)
+          .sort((a, b) => {
+            const itemA = a.year;
+            const itemB = b.year;
+
+            if (itemA < itemB) {
+              return 1;
+            }
+            if (itemA > itemB) {
+              return -1;
+            }
+            return 0;
+          });
       }
-      if (itemA > itemB) {
-        return -1;
+    } else {
+      if (type === "from") {
+        this.ratingFrom = event.target.value;
+
+        this.filteredMovies = this.model
+          .filter((movie) => movie.rating >= this.ratingFrom)
+          .sort((a, b) => {
+            const itemA = a.rating;
+            const itemB = b.rating;
+
+            if (itemA < itemB) {
+              return 1;
+            }
+            if (itemA > itemB) {
+              return -1;
+            }
+            return 0;
+          });
+      } else {
+        this.ratingTo = event.target.value;
+
+        this.filteredMovies = this.model
+          .filter((movie) => movie.rating <= this.ratingTo)
+          .sort((a, b) => {
+            const itemA = a.rating;
+            const itemB = b.rating;
+
+            if (itemA < itemB) {
+              return 1;
+            }
+            if (itemA > itemB) {
+              return -1;
+            }
+            return 0;
+          });
       }
-      return 0;
-    });
-  }
-
-  @action
-  updateYearFrom(event) {
-    this.yearFrom = event.target.value;
-
-    this.filteredMovies = this.model.filter((movie) => movie.year >= this.yearFrom).sort((a, b) => {
-      const itemA = a.year;
-      const itemB = b.year;
-
-      if (itemA < itemB) {
-        return 1;
-      }
-      if (itemA > itemB) {
-        return -1;
-      }
-      return 0;
-    });
-  }
-
-  @action
-  updateRatingTo(event) {
-    this.ratingTo = event.target.value;
-
-    this.filteredMovies = this.model.filter((movie) => movie.rating <= this.ratingTo).sort((a, b) => {
-      const itemA = a.rating;
-      const itemB = b.rating;
-
-      if (itemA < itemB) {
-        return 1;
-      }
-      if (itemA > itemB) {
-        return -1;
-      }
-      return 0;
-    });
-  }
-
-  @action
-  updateRatingFrom(event) {
-    this.ratingFrom = event.target.value;
-
-    this.filteredMovies = this.model.filter((movie) => movie.rating >= this.ratingFrom).sort((a, b) => {
-      const itemA = a.rating;
-      const itemB = b.rating;
-
-      if (itemA < itemB) {
-        return 1;
-      }
-      if (itemA > itemB) {
-        return -1;
-      }
-      return 0;
-    });
+    }
   }
 
   @action
@@ -103,7 +108,7 @@ export default class IndexController extends Controller {
 
   @action
   sortBy(property) {
-    if (property === "title") {
+    if (property === 'title') {
       this.filteredMovies = this.model.sort((a, b) => {
         const titleA = a.title.toUpperCase();
         const titleB = b.title.toUpperCase();
@@ -117,11 +122,9 @@ export default class IndexController extends Controller {
         return 0;
       });
     } else {
-      const filter = property === "year" ? "year" : "rating";
-      console.log(filter);
       this.filteredMovies = this.model.sort((a, b) => {
-        const itemA = property === "year" ? a.year : a.rating;
-        const itemB = property === "year" ? b.year : b.rating;
+        const itemA = property === 'year' ? a.year : a.rating;
+        const itemB = property === 'year' ? b.year : b.rating;
 
         if (itemA < itemB) {
           return 1;
@@ -132,5 +135,10 @@ export default class IndexController extends Controller {
         return 0;
       });
     }
+  }
+
+  @action
+  click() {
+    console.log('Click en index controller');
   }
 }

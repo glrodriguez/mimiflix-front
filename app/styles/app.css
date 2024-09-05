@@ -17,7 +17,7 @@ li {
   margin: 0 auto;
   padding: 20px;
   background-color: #f4f4f4;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgb(0 0 0 / 10%);
 }
 
 /* Estilo para el NavBar */
@@ -40,9 +40,9 @@ li {
   justify-content: space-around;
   align-items: center;
   padding: 20px;
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgb(0 0 0 / 10%);
 }
 
 .tool-bar {
@@ -70,14 +70,16 @@ li {
   border-radius: 25px; /* Bordes más redondeados para un diseño moderno */
   font-size: 1rem; /* Tamaño de fuente adecuado para legibilidad */
   box-sizing: border-box; /* Incluye el borde y el relleno en el ancho total */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
-  transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave para efectos de borde y sombra */
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%); /* Sombra para dar profundidad */
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s; /* Transición suave para efectos de borde y sombra */
 }
 
 .search-bar input:focus {
   border-color: #007bff; /* Cambia el color del borde al hacer foco */
   outline: none; /* Elimina el borde azul por defecto */
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra al hacer foco para visibilidad */
+  box-shadow: 0 0 5px rgb(0 123 255 / 50%); /* Sombra al hacer foco para visibilidad */
 }
 
 .add-movie {
@@ -85,19 +87,19 @@ li {
 }
 
 .add-movie-button {
-  background-color: rgb(43, 145, 255);
+  background-color: rgb(43 145 255);
   color: #fff;
   border: none;
   border-radius: 25px;
   font-size: 1rem;
   padding: 10px 20px;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
   transition: background-color 0.3s ease;
 }
 
 .add-movie-button:hover {
-  background-color: rgb(31, 109, 193);
+  background-color: rgb(31 109 193);
 }
 
 .movies {
@@ -126,7 +128,7 @@ li {
   background-color: #e8f0fe; /* Fondo claro para separación visual */
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
   padding: 15px;
   transition: background-color 0.3s ease;
 }
@@ -157,13 +159,13 @@ li {
 
 /* Estilo para los enlaces */
 .no-link {
-  color: #000000;
+  color: #000;
   text-decoration: none;
 }
 
 .details h3 {
   font-size: 150%;
-  color: rgb(43, 145, 255);
+  color: rgb(43 145 255);
 }
 
 /* Estilo general para el formulario */
@@ -171,13 +173,13 @@ li {
   width: 100%;
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
 }
 
 .new-movie-form h2 {
   margin-bottom: 20px;
   font-size: 1.5em;
-  color: rgb(43, 145, 255);
+  color: rgb(43 145 255);
   text-align: center;
 }
 
@@ -192,7 +194,8 @@ li {
   color: #555;
 }
 
-.form-group input, .form-group textarea {
+.form-group input,
+.form-group textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
@@ -204,7 +207,7 @@ li {
 .form-group textarea:focus {
   border-color: #007bff; /* Color del borde al enfocar */
   outline: none;
-  box-shadow: 0 0 4px rgba(0, 123, 255, 0.2); /* Sombra al enfocar */
+  box-shadow: 0 0 4px rgb(0 123 255 / 20%); /* Sombra al enfocar */
 }
 
 .form-group textarea {
@@ -214,7 +217,7 @@ li {
 
 .new-movie-form {
   max-width: 600px;
-  margin: 0px;
+  margin: 0;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -249,7 +252,8 @@ select {
   color: #333;
 }
 
-.selected-genres h3, .selected-genres p {
+.selected-genres h3,
+.selected-genres p {
   margin-bottom: 15px;
   margin-top: 20px;
   color: #555;
@@ -264,7 +268,7 @@ select {
 
 .new-movie-form select option {
   padding: 5px;
-  background-color: #ffffff;
+  background-color: #fff;
   color: #333;
 }
 
@@ -292,13 +296,13 @@ button[type="submit"]:hover {
   background-color: #f4f4f4;
   padding: 15px;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
   margin-top: 20px;
 }
 
 .sidebar .sidebar-title {
   font-size: large;
-  color: rgb(43, 145, 255);
+  color: rgb(43 145 255);
   margin-top: 10px;
   margin-bottom: 20px;
   text-align: center;
@@ -357,17 +361,23 @@ button[type="submit"]:hover {
   flex-direction: column;
 }
 
-.sort-buttons button {
-  padding: 10px;
-  margin-top: 10px;
-  background-color: rgb(43, 145, 255);
-  color: white;
+.sort-buttons button:hover {
+  background-color: rgb(31 109 193);
+}
+
+.nice-button {
+  background-color: rgb(43 145 255);
+  color: #fff;
   border: none;
-  border-radius: 14px;
+  border-radius: 250px;
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin: 5px;
   cursor: pointer;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
   transition: background-color 0.3s ease;
 }
 
-.sort-buttons button:hover {
-  background-color: rgb(31, 109, 193);
+.nice-button:hover {
+  background-color: rgb(31 109 193);
 }

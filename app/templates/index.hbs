@@ -1,45 +1,17 @@
-<div class="sidebar">
-  <p class="sidebar-title">Filter Movies</p>
-  <div class="filter-group">
-    <p>Year</p>
-    <div class="from-to">
-      <div class="data-input">
-        <label for="filter-year-from">From</label>
-        <input type="number" id="filter-year-from" placeholder="Year" min="0" max="2025" value={{this.yearFrom}} {{on "input" this.updateYearFrom}}/>
-      </div>
-      <div class="data-input">
-        <label for="filter-year-to">to</label>
-        <input type="number" id="filter-year-to" placeholder="Year" min="0" max="2025" value={{this.yearTo}} {{on "input" this.updateYearTo}}/>
-      </div>
-    </div>
-  </div>
-  <div class="filter-group">
-    <p>Rating</p>
-    <div class="from-to">
-      <div class="data-input">
-        <label for="filter-rating-from">From</label>
-        <input type="number" id="filter-rating-from" placeholder="Rating" min="0" max="5" value={{this.ratingFrom}} {{on "input" this.updateRatingFrom}}/>
-      </div>
-      <div class="data-input">
-        <label for="filter-rating-to">to</label>
-        <input type="number" id="filter-rating-to" placeholder="Rating" min="0" max="5" value={{this.ratingTo}} {{on "input" this.updateRatingTo}}/>
-      </div>
-    </div>
-  </div>
-  <p>Sort by:</p>
-  <div class="sort-buttons">
-    <button type="button" {{on "click" (fn this.sortBy "title")}}>Title</button>
-    <button type="button" {{on "click" (fn this.sortBy "year")}}>Year</button>
-    <button type="button" {{on "click" (fn this.sortBy "rating")}}>Rating</button>
-  </div>
-</div>
+<Filters @updateMoviesByFilter={{this.sortBy}}
+  @valueYearFrom={{this.yearFrom}} @valueYearTo={{this.yearTo}}
+  @valueRatingFrom={{this.ratingFrom}} @valueRatingTo={{this.ratingTo}}
+  @updateMovies={{this.updateMovies}}
+  @updateYearFrom={{this.updateYearFrom}} @updateYearTo={{this.updateYearTo}}
+  @updateRatingFrom={{this.updateRatingFrom}} @updateRatingTo={{this.updateRatingTo}}
+/>
 <div class="movies">
   <div class="tool-bar">
     <div class="search-bar">
       <input id="search-movie" type="text" placeholder="Search Movie..." value={{this.searchTerm}} {{on "input" this.updateSearchTerm}}/>
     </div>
     <div class="add-movie">
-      <button class="add-movie-button" type="button" {{on "click" this.addMovie}}>Add Movie</button>
+      <NiceButton @action={{this.addMovie}} @label="Add Movie" />
     </div>
   </div>
   <ul class="results">

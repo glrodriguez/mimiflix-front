@@ -1,17 +1,64 @@
 {{page-title "EditMovie"}}
-<h1>Edit Movie: {{@model.title}}</h1>
-<div>
-  <Input type="text">Title</Input>
+  <div class = "editMovieMenu">
+    <div id="back-edit-movie">
+      <LinkTo @route="movie" @model={{@model.title}} class="menu-home">
+            <button class="back-edit-movie-button" type="back">Back</button>
+    </LinkTo>
+    </div>
+  <h1>Edit Movie: </h1>
+  <h2>{{@model.title}}</h2>
+  <div class="form-group">
+    <label for="inputTitle">Title</label>
+    <Input id="inputTitle" type="text" @value={{@model.title}} {{on "input" (fn this.updateProperty "title" value="target.value")}}/>
+  </div>
+  <div class="form-group">
+    <label for="inputDirector">Director</label>
+    <Input id="inputDirector" type="text" @value={{@model.director}} {{on "input" (fn this.updateProperty "director" value="target.value")}}/>
+  </div>
+  <div class="form-group">
+    <label for="inputYear">Year</label>
+    <Input id="inputYear" type="text" @value={{@model.year}} {{on "input" (fn this.updateProperty "year" value="target.value")}}/>
+  </div>
+  <div class="form-group">
+    <label for="inputDescription">Description</label>
+    <Input id="inputDescription" type="text" @value={{@model.description}} {{on "input" (fn this.updateProperty "description" value="target.value")}}/>
+  </div>
+  <div class="form-group">
+    <label for="inputLength">Length</label>
+    <Input id="inputLength" type="text" @value={{@model.length}} {{on "input" (fn this.updateProperty "length" value="target.value")}}/>
+  </div>
+   <div class="form-group">
+    <label for="inputRating">Rating</label>
+    <Input id="inputRating" type="text" @value={{@model.rating}} {{on "input" (fn this.updateProperty "rating" value="target.value")}}/>
+  </div>
+   
+     <div class="form-group">
+      <label for="genres">Genres*:</label>
+      <select id="genres" multiple>
+        {{#each this.notSelectedGenres as |genre|}}
+          <option value={{genre}} {{on "click" (fn this.toggleGenre genre)}}>{{genre}}</option>
+        {{/each}}
+      </select>
+      <div class="selected-genres">
+        <h3>Selected Genres:</h3>
+        {{#if this.selectedGenres.length}}
+          <ul>
+            {{#each this.selectedGenres as |genre|}}
+              <li>{{genre}} <button type="button" {{on "click" (fn this.toggleGenre genre)}}>Remove</button></li>
+            {{/each}}
+          </ul>
+        {{else}}
+          <p>You have no selected genres</p>
+        {{/if}}
+      </div>
+    </div>
+
+    <div id="submit-edit-movie">
+      <LinkTo @route="movie" class="menu-home">
+        <button class="edit-movie-button" type="submit" {{on "click" (fn this.editMovie)}}>Edit Movie</button>
+    </LinkTo>
+    </div>
+
 </div>
-<div>
-  <Input type="text">Director</Input>
-</div>
-<div>
-  <Input type="text">Year</Input>
-</div>
-<div>
-  <Input type="text">Description</Input>
-</div>
-<div>
-  <Input type="text">Rating</Input>
-</div>
+
+

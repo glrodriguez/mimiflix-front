@@ -37,6 +37,9 @@ li {
 
 /* Estilo para el cuerpo de la página */
 .body {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   padding: 20px;
   background-color: #ffffff;
   border-radius: 5px;
@@ -127,10 +130,9 @@ li {
   text-decoration: underline;
 }
 
-
-
 /* Estilo para los enlaces de botones */
-.editMovie, .btnDeleteMovie {
+.editMovie,
+.btnDeleteMovie {
   text-decoration: none; /* Elimina subrayado del enlace */
 }
 
@@ -141,7 +143,8 @@ li {
 }
 
 /* Estilo base para los botones */
-.btnEditMovie, .btnDeleteMovie {
+.btnEditMovie,
+.btnDeleteMovie , .edit-movie-button{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -157,20 +160,33 @@ li {
   width: 150px; /* Ajusta el ancho según sea necesario */
   height: 40px; /* Ajusta la altura según sea necesario */
 }
+.back-edit-movie-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(43, 145, 255);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.menu-home {
+  text-decoration: none; /* Elimina el subrayado */
+  color: inherit; /* Mantiene el color del texto */
+}
 
 /* Estilo para el efecto hover en ambos botones */
-.btnEditMovie:hover, .btnDeleteMovie:hover {
+.btnEditMovie:hover,
+.btnDeleteMovie:hover , .edit-movie-button:hover, .back-edit-movie-button:hover{
   background-color: rgb(31, 109, 193);
+  color: #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+
 }
-
-
-/* Efecto hover para ambos botones */
-.editMovie .btnEditMovie:hover, .btnDeleteMovie:hover {
-  background-color: rgb(31, 109, 193);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-}
-
 
 /* Estilo para el contenedor de la página de la película */
 .moviePage {
@@ -278,4 +294,125 @@ li {
 
 .no-link:hover {
   text-decoration: underline;
+}
+
+/* Estilo general para el formulario */
+.editMovieMenu {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+}
+
+.editMovieMenu h1 {
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: rgb(43, 145, 255);
+  text-align: center;
+}
+
+.editMovieMenu h2 {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  color: rgb(43, 145, 255);
+  text-align: center;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #007bff; /* Color del borde al enfocar */
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.2); /* Sombra al enfocar */
+}
+
+.form-group textarea {
+  height: 100px;
+  resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+.editMovieMenu {
+  max-width: 600px;
+  margin: 0px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.Input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.selected-genres {
+  margin-top: 15px;
+}
+
+.selected-genres ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.selected-genres li {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.selected-genres h3, .selected-genres p {
+  margin-bottom: 15px;
+  margin-top: 20px;
+  color: #555;
+}
+
+.selected-genres button {
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+}
+
+.editMovieMenu select option {
+  padding: 5px;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.editMovieMenu select option:hover {
+  background-color: #e6e6e6;
+}
+
+#submit-edit-movie {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center; /* Centra los botones horizontalmente */
+  gap: 10px; /* Espacio entre los botones, ajusta según sea necesario */
 }

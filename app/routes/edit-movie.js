@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
 
 export default class EditMovieRoute extends Route {
-  async model(movie){
+  async model(movie) {
     console.log(movie.movie_id);
     return {
       _id: '66be345e0b3655fa1eb3fd9f',

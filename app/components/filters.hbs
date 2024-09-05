@@ -1,0 +1,35 @@
+<div class="sidebar">
+  <p class="sidebar-title">Filter Movies</p>
+  <div class="filter-group">
+    <p>Year</p>
+    <div class="from-to">
+      <div class="data-input">
+        <label for="filter-year-from">From</label>
+        <input type="number" id="filter-year-from" placeholder="Year" min="0" max="2025" value={{@valueYearFrom}} {{on "input" (fn @updateMovies "year" "from")}}/>
+      </div>
+      <div class="data-input">
+        <label for="filter-year-to">to</label>
+        <input type="number" id="filter-year-to" placeholder="Year" min="0" max="2025" value={{@valueYearTo}} {{on "input" (fn @updateMovies "year" "to")}}/>
+      </div>
+    </div>
+  </div>
+  <div class="filter-group">
+    <p>Rating</p>
+    <div class="from-to">
+      <div class="data-input">
+        <label for="filter-rating-from">From</label>
+        <input type="number" id="filter-rating-from" placeholder="Rating" min="0" max="5" value={{@valueRatingFrom}} {{on "input" (fn @updateMovies "rating" "from")}}/>
+      </div>
+      <div class="data-input">
+        <label for="filter-rating-to">to</label>
+        <input type="number" id="filter-rating-to" placeholder="Rating" min="0" max="5" value={{@valueRatingTo}} {{on "input" (fn @updateMovies "rating" "to")}}/>
+      </div>
+    </div>
+  </div>
+  <p>Sort by:</p>
+  <div class="sort-buttons">
+    <NiceButton @action={{fn @updateMoviesByFilter "title"}} @label="Title" />
+    <NiceButton @action={{fn @updateMoviesByFilter "year"}} @label="Year" />
+    <NiceButton @action={{fn @updateMoviesByFilter "rating"}} @label="Rating" />
+  </div>
+</div>

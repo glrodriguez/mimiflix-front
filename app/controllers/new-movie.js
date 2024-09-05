@@ -1,7 +1,6 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
-
 export default class NewMovieController extends Controller {
   title = '';
   director = '';
@@ -9,7 +8,20 @@ export default class NewMovieController extends Controller {
   description = '';
   length = '';
   rating = '';
-  genres = ['Action', 'Drama', 'Comedy', 'Horror', 'Sci-Fi', 'Romance', 'Mystery', 'Fantasy', 'War', 'Adventure', 'Thriler', 'Animation'];
+  genres = [
+    'Action',
+    'Drama',
+    'Comedy',
+    'Horror',
+    'Sci-Fi',
+    'Romance',
+    'Mystery',
+    'Fantasy',
+    'War',
+    'Adventure',
+    'Thriler',
+    'Animation',
+  ];
   selectedGenres = [];
 
   @action
@@ -20,11 +32,18 @@ export default class NewMovieController extends Controller {
   @action
   toggleGenre(genre) {
     if (this.selectedGenres.includes(genre)) {
-      this.set('selectedGenres', this.selectedGenres.filter(g => g !== genre));
+      this.set(
+        'selectedGenres',
+        this.selectedGenres.filter((g) => g !== genre),
+      );
       this.set('genres', [genre, ...this.genres]);
-    } else { // Añado el genero
+    } else {
+      // Añado el genero
       this.set('selectedGenres', [...this.selectedGenres, genre]);
-      this.set('genres', this.genres.filter(g => g !== genre));
+      this.set(
+        'genres',
+        this.genres.filter((g) => g !== genre),
+      );
     }
   }
 
@@ -39,15 +58,21 @@ export default class NewMovieController extends Controller {
     const trimmedLength = this.length.replace(/\s+/g, ' ').trim();
     const trimmedRating = this.rating.replace(/\s+/g, ' ').trim();
 
-    if (trimmedDescription == '' || trimmedDirector == '' || trimmedTitle == '' || trimmedYear == '' || trimmedLength == '') {
-      window.alert("You must complete all * fields");
+    if (
+      trimmedDescription == '' ||
+      trimmedDirector == '' ||
+      trimmedTitle == '' ||
+      trimmedYear == '' ||
+      trimmedLength == ''
+    ) {
+      window.alert('You must complete all * fields');
     } else {
       if (this.selectedGenres.length === 0) {
-        window.alert("You must select at least one genre");
+        window.alert('You must select at least one genre');
       } else {
         // Guardar en la base
 
-        console.log("Pelicula guardada");
+        console.log('Pelicula guardada');
       }
     }
   }
